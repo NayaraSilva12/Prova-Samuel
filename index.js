@@ -1,8 +1,27 @@
-import { registerRootComponent } from 'expo';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import App from './App';
+import Tela01 from './screens/Tela01';
+import Tela02 from './screens/Tela02';
+import Tela03 from './screens/Tela03';
 
-// registerRootComponent calls AppRegistry.registerComponent('main', () => App);
-// It also ensures that whether you load the app in Expo Go or in a native build,
-// the environment is set up appropriately
-registerRootComponent(App);
+const Stack = createNativeStackNavigator();
+
+export default function App() {
+
+  return (
+
+    <NavigationContainer>
+
+      <Stack.Navigator initialRouteName="Início">
+
+        <Stack.Screen name="Início" component={Tela01}/>
+        <Stack.Screen name="Formulário" component={Tela02}/>
+        <Stack.Screen name="Resultado" component={Tela03}/>
+
+      </Stack.Navigator>
+
+    </NavigationContainer>
+  );
+}
